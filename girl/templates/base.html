@@ -1,29 +1,30 @@
 {% load static %}
 <html>
-    <head>
+    <head> <h1><a href="/"> Blog</a></h1>
         <title> Blog</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        
         <link rel="stylesheet" href="{% static 'css/custom.css' %}">
-    </head>
-    <body>
-    <center>
-    
-        <div class="content container">
-            <div class="row">
-                <div class="col-md-8">
+</head>
+<body>
+<center>
+<div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+                
+                {% block content %}
 
-                        {% block content %}
+                {% endblock %}
 
-                        {% endblock %}
-
-                        {% if user.is_authenticated %}
-                            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-                        {% endif %}
-                    </div>
-                </div>
-       </div>
-    </cenetr>
-    </body>
+                {% if user.is_authenticated %}
+                
+                    <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                {% endif %}
+            </div>
+        </div>
+</div>
+</cenetr>
+</body>
 </html>
